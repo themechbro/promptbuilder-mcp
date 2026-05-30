@@ -1,0 +1,29 @@
+{
+  "name": "promptbuilder-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Prompt Builder — access your prompt vault from Claude Desktop, Cursor, and any MCP-compatible client",
+  "type": "module",
+  "bin": {
+    "promptbuilder-mcp": "./bin/promptbuilder-mcp.js"
+  },
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node bin/promptbuilder-mcp.js",
+    "dev": "node --watch bin/promptbuilder-mcp.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "prompt-engineering",
+    "claude",
+    "cursor",
+    "promptbuilder"
+  ],
+  "author": "themechbro",
+  "license": "MIT"
+}
