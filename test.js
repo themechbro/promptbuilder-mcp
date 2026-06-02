@@ -3,6 +3,7 @@ import { createClient } from "./src/client.js";
 import { handleGetComponentBySlug } from "./src/tools/get_component_by_slug.js";
 import { handleGetPackBySlug } from "./src/tools/get_pack_by_slug.js";
 import { handleListCategories } from "./src/tools/list_categories.js";
+import { handleSearchComponentsSemantic } from "./src/tools/search_components_semantic.js";
 
 // Point to local dev server
 const client = createClient(
@@ -13,6 +14,13 @@ const client = createClient(
 console.log("\n--- list_categories ---");
 const cats = await handleListCategories(client);
 console.log(cats.content[0].text);
+
+console.log("\n--- search_components_semantic ---");
+const semantic = await handleSearchComponentsSemantic(
+  { query: "handle customer complaints", type: "protocol" },
+  client,
+);
+console.log(semantic.content[0].text);
 
 async function run() {
   console.log("\n--- get_component_by_slug ---");

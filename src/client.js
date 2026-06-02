@@ -15,5 +15,18 @@ export function createClient(apiKey) {
     }
     return response.json();
   }
-  return { get };
+
+  async function post(path, body) {
+    const response = await fetch(`${BASE_URL}${path}`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error(err.error || `Request failed: ${response.status}`);
+    }
+    return response.json();
+  }
+  return { get, post };
 }

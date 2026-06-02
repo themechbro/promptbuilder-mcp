@@ -29,6 +29,10 @@ import {
   listCategoriesTool,
   handleListCategories,
 } from "./tools/list_categories.js";
+import {
+  searchComponentsSemanticTool,
+  handleSearchComponentsSemantic,
+} from "./tools/search_components_semantic.js";
 
 const TOOLS = [
   listCategoriesTool,
@@ -36,6 +40,7 @@ const TOOLS = [
   getComponentTool,
   getComponentBySlugTool,
   searchComponentsTool,
+  searchComponentsSemanticTool,
   listPacksTool,
   getPackTool,
   getPackBySlugTool,
@@ -83,6 +88,8 @@ export async function startServer(apiKey) {
           return await handleGetPackBySlug(args, client);
         case "list_categories":
           return await handleListCategories(client);
+        case "search_components_semantic":
+          return await handleSearchComponentsSemantic(args, client);
         default:
           throw new Error(`Unknown tool: ${name}`);
       }
