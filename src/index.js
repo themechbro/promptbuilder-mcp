@@ -25,8 +25,13 @@ import {
   getPackBySlugTool,
   handleGetPackBySlug,
 } from "./tools/get_pack_by_slug.js";
+import {
+  listCategoriesTool,
+  handleListCategories,
+} from "./tools/list_categories.js";
 
 const TOOLS = [
+  listCategoriesTool,
   listComponentsTool,
   getComponentTool,
   getComponentBySlugTool,
@@ -76,6 +81,8 @@ export async function startServer(apiKey) {
           return await handleGetComponentBySlug(args, client);
         case "get_pack_by_slug":
           return await handleGetPackBySlug(args, client);
+        case "list_categories":
+          return await handleListCategories(client);
         default:
           throw new Error(`Unknown tool: ${name}`);
       }
