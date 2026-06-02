@@ -17,13 +17,23 @@ import {
 } from "./tools/search_components.js";
 import { listPacksTool, handleListPacks } from "./tools/list_packs.js";
 import { getPackTool, handleGetPack } from "./tools/get_pack.js";
+import {
+  getComponentBySlugTool,
+  handleGetComponentBySlug,
+} from "./tools/get_component_by_slug.js";
+import {
+  getPackBySlugTool,
+  handleGetPackBySlug,
+} from "./tools/get_pack_by_slug.js";
 
 const TOOLS = [
   listComponentsTool,
   getComponentTool,
+  getComponentBySlugTool,
   searchComponentsTool,
   listPacksTool,
   getPackTool,
+  getPackBySlugTool,
 ];
 
 export async function startServer(apiKey) {
@@ -62,6 +72,10 @@ export async function startServer(apiKey) {
           return await handleListPacks(args, client);
         case "get_pack":
           return await handleGetPack(args, client);
+        case "get_component_by_slug":
+          return await handleGetComponentBySlug(args, client);
+        case "get_pack_by_slug":
+          return await handleGetPackBySlug(args, client);
         default:
           throw new Error(`Unknown tool: ${name}`);
       }

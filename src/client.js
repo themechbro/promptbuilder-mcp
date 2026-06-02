@@ -1,4 +1,5 @@
-const BASE_URL = "https://promptbuilder-five.vercel.app/";
+const BASE_URL =
+  "https://promptbuilder-five.vercel.app/" || "http://localhost:3000";
 
 export function createClient(apiKey) {
   const headers = {
