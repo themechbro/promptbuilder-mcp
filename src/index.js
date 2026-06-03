@@ -33,6 +33,7 @@ import {
   searchComponentsSemanticTool,
   handleSearchComponentsSemantic,
 } from "./tools/search_components_semantic.js";
+import { compilePackTool, handleCompilePack } from "./tools/compile_pack.js";
 
 const TOOLS = [
   listCategoriesTool,
@@ -44,6 +45,7 @@ const TOOLS = [
   listPacksTool,
   getPackTool,
   getPackBySlugTool,
+  compilePackTool,
 ];
 
 export async function startServer(apiKey) {
@@ -90,6 +92,8 @@ export async function startServer(apiKey) {
           return await handleListCategories(client);
         case "search_components_semantic":
           return await handleSearchComponentsSemantic(args, client);
+        case "compile_pack":
+          return await handleCompilePack(args, client);
         default:
           throw new Error(`Unknown tool: ${name}`);
       }
