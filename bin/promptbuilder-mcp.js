@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { startServer } from "../src/index.js"; // ✅ needs .js
 // Parse --key argument
 const args = process.argv.slice(2);
